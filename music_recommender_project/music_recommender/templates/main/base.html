@@ -44,8 +44,7 @@
                         </li>
                     </ul>
                     <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <a class="btn btn-outline-success" href="#">Login</a>
                     </form>
                 </div>
             </div>
@@ -53,8 +52,14 @@
     </header>
     
     <div class="container mt-5">
-        {% block content %}
-        {% endblock %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}{% endblock %}
     </div>
 
     <footer class="text-center mt-5">
