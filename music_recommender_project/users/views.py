@@ -10,9 +10,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
-            return redirect('musicify-home')
+            messages.success(request, f'Account for {username} has been created!')
+            return redirect('users-login')
     else:
         form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
-
+    return render(request, 'users/register.html', {'form': form, 'title': 'About'})

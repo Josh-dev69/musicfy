@@ -1,6 +1,5 @@
 {% extends "main/base.html" %}
 {% block title %}Create an Account{% endblock title %}
-{% load crispy_forms_tags %}
 {% block content %}
     <section class="vh-100">
         <div class="mask d-flex align-items-center h-100 gradient-custom-3">
@@ -9,20 +8,10 @@
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-5">
-                                
-                                <form method="POST">
-                                    {% csrf_token %}
-                                    <fieldset class="form-group">
-                                        <h2 class="text-uppercase text-center mb-5">Create an account</h2>
-                                        {{ form|crispy }}
-                                    </fieldset>
-                                    <div class="form-group">
-                                        <button class="btn btn-success" type="submit">Sign Up</button>
-                                    </div>
-                                </form>
+                                <h2>You have been Logged Out</h2>
                                 <div class="border-top pt-3">
                                     <small class="text-muted">
-                                        Already Have An Account? <a class="ml-2" href="{% url 'users-login' %}">Sign In</a>
+                                        <a class="ml-2" href="{% url 'users-login' %}">Log In Again</a>
                                     </small>
                                 </div>
                             </div>
