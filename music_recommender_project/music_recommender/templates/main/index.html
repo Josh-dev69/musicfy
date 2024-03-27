@@ -1,26 +1,71 @@
 {% extends "main/base.html" %}
+
 {% block content %}
-<div class="jumbotron text-center">
-    <h1 class="display-4">Welcome to Musicify</h1>
-    <p class="lead text-start">
-        Musicify is your ultimate destination for discovering personalized music recommendations tailored to your unique taste. Powered by cutting-edge technology and the vast Spotify library, Musicify delivers curated playlists and song suggestions that resonate with you.
-    </p>
-    <hr class="my-4">
-    <h1 class="display-6">Features</h1>
-    <div class="row">
-        <div class="col-md-4">
-            <h3>Personalized Recommendations</h3>
-            <p class="text-start">Receive recommendations based on your listening history, favorite genres, and artist preferences.</p>
+<div>
+    <section class="py-0 text-center container">
+        <div class="row py-lg-0">
+          <div class="col-lg-12 col-md-3 mx-auto">
+            <h1 class="fw-light">Welcome to Musicify</h1>
+            <p class="lead text-body-primary">
+                Musicify is your ultimate destination for discovering personalized music recommendations tailored to your unique taste. Powered by cutting-edge technology and the vast Spotify library, Musicify delivers curated playlists and song suggestions that resonate with you.
+            </p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="{% url 'users-register' %}" role="button">Get Started</a>
+            </p>
+          </div>
         </div>
-        <div class="col-md-4">
-            <h3>User Authentication</h3>
-            <p class="text-start">Create an account to save your preferences, access personalized playlists, and enjoy a seamless music discovery experience.</p>
+    </section>
+
+    <div class="container marketing">
+    
+        <!-- START THE FEATURETTES -->
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">Personalized Recommendations</h2>
+                <p class="lead">Receive recommendations based on your listening history, favorite genres, and artist preferences.</p>
+            </div>
+            <div class="col-md-5">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h3>Social Integration</h3>
-            <p class="text-start">Connect with friends, share playlists, and discover new music together through social login options.</p>
+        
+        <hr class="featurette-divider">
+        
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading fw-normal lh-1">User Authentication</h2>
+                <p class="lead">Create an account to save your preferences, access personalized playlists, and enjoy a seamless music discovery experience.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+            </div>
         </div>
-    </div>    
+        
+        <hr class="featurette-divider">
+        
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading fw-normal lh-1">Social Integration</h2>
+                <p class="lead">Connect with friends, share playlists, and discover new music together through social login options.</p>
+            </div>
+            <div class="col-md-5">
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/>
+                    <text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">
+                        
+                    </text></svg>
+            </div>
+        </div>
+    
+        <hr class="featurette-divider">
+    
+        <!-- /END THE FEATURETTES -->
+    
+    </div><!-- /.container -->
+
     <p>Powered by cutting-edge technology and the vast Spotify library, Musicify delivers curated playlists and song suggestions that resonate with you.</p>
     <a class="btn btn-primary btn-lg" href="#" role="button">Get Started</a>
 </div>
