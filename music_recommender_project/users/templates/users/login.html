@@ -9,7 +9,7 @@
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
 
-                            <form method="POST" class="form-group">
+                            <form method="POST" class="form-group" action="{% url 'users-login' %}">
                                 {% csrf_token %}
                                 <h2 class="text-uppercase text-center mb-5">Login</h2>
                                 {{ form|crispy }}

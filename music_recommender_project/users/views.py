@@ -17,7 +17,7 @@ def register(request):
     return render(request, 'users/register.html', {'form': form, 'title': 'About'})
 
 # Login View
-def user_login(request):
+def login_user(request):
     if request.method == 'POST':
         form = UserLoginForm(request.POST)
         if form.is_valid():
@@ -26,14 +26,16 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                messages.success(request,("You have been Logged in"))
                 return redirect('musicify-home')  # Redirect to home page after login
             else:
                 messages.error(request, 'Invalid username or password.')
+                return redirect('users-login')  # Redirect to home page after login
     else:
-        form = UserLoginForm()
-    return render(request, 'users/login.html', {'form': form, 'title': 'Login'})
+        return render(request, 'users/login.html', {'form': form, 'title': 'Login'})
 
 # Logout View
-def user_logout(request):
+def logout_user(request):
     logout(request)
-    return redirect('login')  # Redirect to login page after logout
+    messages.success(request, ("You have been logged out..."))
+    return redirect('musicify-home')
