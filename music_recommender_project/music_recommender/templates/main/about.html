@@ -1,4 +1,42 @@
 {% extends "main/base.html" %}
 {% block content %}
-<h1>About Page</h1>
+
+<div>
+    <section class="py-0 text-center container">
+        <div class="row py-lg-0">
+            <div class="col-lg-12 col-md-3 mx-auto">
+                <h1 class="fw-light">About Musicify</h1>
+                <p class="lead text-body-primary">
+                    Musicify is your ultimate destination for discovering personalized music recommendations tailored to
+                    your unique taste. Powered by cutting-edge technology and the vast Spotify library, Musicify
+                    delivers curated playlists and song suggestions that resonate with you.
+                </p>
+
+                <p>
+                    <a class="btn btn-primary btn-lg" href="{% url 'musicify-home' %}" role="button">Get Started</a>
+                </p>
+            </div>
+        </div>
+    </section>
+<section class="container">
+    <div class="row">
+        <div>
+            <h3>Inspiration and Journey</h3>
+            <p>This project was born out of a shared passion for music. Inspired by the functionality and user experience of spotify, I embarked on a journey to create a platform that delivers curated playlists and song suggestions that resonate with you </p>
+        
+            <p><strong>Developer Contact</strong></p>
+            <ul>
+                <li><a href="https://www.linkedin.com/in/ebube-aloh-1627b1185">LinkedIn</a></li>
+                <li><a href="https://github.com/Josh-dev69">GitHub</a></li>
+                <li><a href="https://twitter.com/AlohEbube">Twitter</a></li>
+            </ul>
+
+            <h3>Explore Our Project</h3>
+            <p>Visit the GitHub repository to delve into the code and contribute to the project's development:</p>
+            <p><a href="https://github.com/Josh-dev69/musicfy">Musicfy on GitHub</a></p>
+
+            <p>Thank you for joining us on this exciting journey</p>
+        </div>
+    </div>
+</section>
 {% endblock content %}

@@ -1,23 +1,54 @@
 {% extends "main/base.html" %}
-{% load crispy_forms_tags %}
+{% block title %}Create an Account{% endblock title %}
 {% block content %}
 <section class="vh-100">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
+            <h1 class="fw-light text-center">Welcome to Musicify</h1>
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
 
-                            <form method="POST" class="form-group" action="{% url 'users-login' %}">
+                            <form method="POST" class="form-group" action="">
                                 {% csrf_token %}
                                 <h2 class="text-uppercase text-center mb-5">Login</h2>
-                                {{ form|crispy }}
 
-                                <p class="text-muted">
-                                    Don't Have An Account? <a class="ml-2" href="{% url 'users-register' %}">Sign Up</a>
-                                </p>
-                                <button class="btn btn-success" type="submit">Login</button>
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="input-group mb-2">
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-lock"></i></span>
+                                            <input type="text" id="username" name="username" class="form-control" aria-label="Username" placeholder="Username" aria-labelledby="basic-addon1">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="input-group mn-2">
+                                            <span class="input-group-text" id="basic-addon2"><i class="bi bi-lock-fill"></i></span>
+                                            <input type="password" id="pass1" name="pass1" class="form-control" aria-label="Password" placeholder="Password" aria-labelledby="basic-addon2">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <button class="btn btn-primary w-100" type="submit">Login</button>
+                                    </div>
+                                </div>
+
+                                <div class="custom-hr">
+                                    <hr>
+                                    <span class="hr-text"></span>
+                                </div>
+
+                                <div class="row text-center">
+                                    <p class="text-muted">
+                                        Don't Have An Account? <span><a class="ml-2" href="{% url 'users-register' %}">Sign Up</a></span>
+                                    </p>
+                                </div>
+
                             </form>
                         </div>
                     </div>

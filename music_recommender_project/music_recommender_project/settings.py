@@ -33,8 +33,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'music_recommender.apps.MusicRecommenderConfig',
     'users.apps.UsersConfig',
-    'crispy_forms',
-    'crispy_bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,7 +56,7 @@ ROOT_URLCONF = 'music_recommender_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,6 +113,7 @@ USE_I18N = True
 
 USE_TZ = True
 
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -126,7 +125,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
-CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
-
-LOGIN_REDIRECT_URL = 'musicify-home'
+LOGIN_URL = 'users-login'

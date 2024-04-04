@@ -1,0 +1,28 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col m5">
+				<div class="input-field col s12">
+					<select multiple onchange="getMovies()" id="emenities" onchange="getMovies()">
+						<option value="" disabled selected>Choose Your Preference</option>
+					</select>
+					<label for="emenities"><h3 class="JT"> <i class="fas fa-suitcase"></i> Select Movie :</h3></label>
+				</div>
+			</div>
+
+			<div class="col m4 ex">
+				<label for="price"><h3 class="JT"><i class="fas fa-clock"></i> Short By Price : </h3> </label>
+				<p class="range-field">
+					<input type="range" onchange="getMovies()" id="price" min="100" max="10000" value="10" > 
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row" id="show_movies_here">
+		</div>
+	</div>
+
+{% endblock content %}

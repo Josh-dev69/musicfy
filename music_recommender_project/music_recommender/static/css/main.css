@@ -1,11 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body {
     background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
 }
-.jumbotron {
-    background-color: #f8f9fa;
-    color: #010505;
-}
+
 .btn-primary {
     background-color: #1db954;
     border-color: #1db954;
@@ -13,4 +12,41 @@ body {
 .btn-primary:hover {
     background-color: #14883f;
     border-color: #14883f;
+}
+
+.input-group {
+    border: 0;
+    border-radius: 0;
+}
+
+.cfbtn {
+    background-color: rgb(0, 52, 241) !important;
+    color: white;
+}
+
+.ctbtn {
+    background-color: rgb(0, 147, 221) !important;
+    color: white;
+}
+
+.custom-hr {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.custom-hr hr {
+    border: none;
+    height: 1px;
+    background-color: #000 !important;
+    margin: 30px 12px;
+}
+
+.hr-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white !important;
+    padding: 0 30px;
 }
