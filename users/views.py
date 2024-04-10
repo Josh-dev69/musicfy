@@ -61,3 +61,8 @@ def logout_user(request):
     logout(request)
     messages.info(request, 'You have Logged out')
     return redirect('musicify-home')
+
+
+@login_required(login_url='users-login')
+def user_preference(request):
+    return render(request, 'users/preferences.html')

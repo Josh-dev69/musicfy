@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 @login_required(login_url='users-login')
-def index(request):
-    return render(request, 'main/index.html')
+def home(request):
+    return render(request, 'main/home.html')
 
 def about(request):
     return render(request, 'main/about.html', { 'title': 'About' })
