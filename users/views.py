@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from .models import UserProfile
 
 # Create your views here.
 
@@ -28,6 +29,10 @@ def register(request):
                 myuser.last_name = lname
                 
                 myuser.save()
+
+                # Create UserProfile
+                profile = UserProfile(user=myuser)
+                profile.save()
 
                 user_login = authenticate(request, username=username, password=pass1)
                 login(request, user_login)
@@ -66,3 +71,8 @@ def logout_user(request):
 @login_required(login_url='users-login')
 def user_preference(request):
     return render(request, 'users/preferences.html')
+
+@login_required
+def profile(request):
+    user_profile = UserProfile.objects.get(user=request.user)
+    return render(request, 'users/profile.html', {'user_profile': user_profile})

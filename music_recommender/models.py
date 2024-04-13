@@ -6,11 +6,11 @@ class MusicTrack(models.Model):
     title = models.CharField(max_length=200)
     artist = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
-    tempo = models.FloatField()
+    album = models.CharField(max_length=100)
 
     # Define any custom methods or properties
     def __str__(self):
-        return self.title
+        return self.title + ' by ' + self.artist
 
     # Customize the admin interface
     class Meta:

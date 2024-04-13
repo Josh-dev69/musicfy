@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -82,6 +83,9 @@ DATABASES = {
     }
 }
 
+# Load Spotify credentials
+SPOTIFY_CLIENT_ID = config.SPOTIFY_CLIENT_ID
+SPOTIFY_CLIENT_SECRET = config.SPOTIFY_CLIENT_SECRET
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

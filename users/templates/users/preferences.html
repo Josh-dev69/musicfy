@@ -11,17 +11,24 @@
                 <form>
                     {% csrf_token %}
                     <div class="row">
-                        <div class="col-12 col-md-10 mb-2">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select><br>
-                        </div>
+                        <div class="row mb-2">
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="input-group">
+                                    <input type="text" id="genre" name="genre" class="form-control" placeholder="Genre of the Song">
+                                </div>
+                            </div>
 
-                        <div class="col-12 col-md-2">
-                            <button type="submit" class="btn btn-success">Search</button>
+                            <div class="col-12 col-md-6 mb-2">
+                                <div class="input-group">
+                                    <input type="text" id="artist" name="artist" class="form-control" placeholder="Artist's Name">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row justify-content-center">
+                            <div class="col-6">
+                                <button class="btn btn-primary w-100" type="submit">Search</button>
+                            </div>
                         </div>
                     </div>
                     

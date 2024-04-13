@@ -55,8 +55,7 @@
                 </div>
                 <div>
                     {% if user.is_authenticated %}
-                        <span class="navbar-link-icon" style="margin-left:16px;"><i class="bi bi-person-fill"></i></span>
-                        <b>Welcome, {{user.username}}</b>
+                        <a class="nav-link" href="{% url 'users-profile' %}">Profile</a>
                     {% endif %}
                 </div>
                 <div style="margin-left:14px;">
