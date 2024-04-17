@@ -6,7 +6,6 @@ class MusicTrack(models.Model):
     title = models.CharField(max_length=200)
     artist = models.CharField(max_length=100)
     genre = models.CharField(max_length=100)
-    album = models.CharField(max_length=100)
 
     # Define any custom methods or properties
     def __str__(self):

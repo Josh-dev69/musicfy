@@ -1,11 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-import requests
-from django.conf import settings
 from users.models import UserProfile
-from .models import MusicTrack
-import base64
+from .spotify import search_music_tracks
 
 # Create your views here.
 
@@ -16,3 +13,14 @@ def home(request):
 def about(request):
     return render(request, 'main/about.html', { 'title': 'About' })
 
+
+
+def recommendation_list(request):
+    # Search for music tracks
+    query = 'your_search_query'
+    music_tracks = search_music_tracks(query)
+    
+    context = {
+        'music_tracks': music_tracks
+    }
+    return render(request, 'recommendations/recommendation_list.html', context)

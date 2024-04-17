@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseServerError
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
+from music_recommender.models import MusicTrack
 
 # Create your views here.
 
@@ -31,7 +33,7 @@ def register(request):
                 myuser.save()
 
                 # Create UserProfile
-                profile = UserProfile(user=myuser)
+                profile = UserProfile.objects.create(user=myuser)
                 profile.save()
 
                 user_login = authenticate(request, username=username, password=pass1)
@@ -53,7 +55,7 @@ def login_user(request):
 
         if user is not None:
             login(request, user)
-            return redirect('musicify-home')  # Redirect to home page after login
+            return redirect('users-preferences')  # Redirect to home page after login
         else:
             messages.error(request, 'Invalid username or password.')
             return redirect('users-login')  # Redirect to home page after login
@@ -65,14 +67,29 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.info(request, 'You have Logged out')
-    return redirect('musicify-home')
+    return redirect('users-login')
 
 
 @login_required(login_url='users-login')
 def user_preference(request):
+    if request.method == 'POST':
+        try:
+            # Process user preferences form submission
+            favorite_genre = request.POST.get('favorite_genre')
+            favorite_artist = request.POST.get('favorite_artist')
+            
+            # Save user preferences to the database
+            user_profile = request.user.userprofile
+            user_profile.favorite_genre = favorite_genre
+            user_profile.favorite_artist = favorite_artist
+            user_profile.save()
+            # Redirect to a success page or homepage
+            return redirect('musicify-home')
+        except Exception as e:
+            return HttpResponseServerError(f"An error occurred: {e}")
     return render(request, 'users/preferences.html')
 
-@login_required
+@login_required(login_url='users-login')
 def profile(request):
     user_profile = UserProfile.objects.get(user=request.user)
     return render(request, 'users/profile.html', {'user_profile': user_profile})

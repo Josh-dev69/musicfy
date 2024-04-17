@@ -8,19 +8,26 @@
             <div class="col-lg-12 col-md-3 mx-auto">
                 <h1 class="fw-light">Welcome to Musicify</h1>
 
-                <form>
+                <form method="POST" class="form-group" action="">
                     {% csrf_token %}
                     <div class="row">
                         <div class="row mb-2">
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="input-group">
-                                    <input type="text" id="genre" name="genre" class="form-control" placeholder="Genre of the Song">
+                                    <select name="favorite_genre" id="favorite_genre" placeholder="Genre of the Song" class="form-control">
+                                        <option value="rock">Rock</option>
+                                        <option value="pop">Pop</option>
+                                        <option value="jazz">Jazz</option>
+                                        <option value="Afro">Afro</option>
+                                        <option value="RnB">RnB</option>
+                                        <option value="Hip_Pop">Hip Pop</option>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="col-12 col-md-6 mb-2">
                                 <div class="input-group">
-                                    <input type="text" id="artist" name="artist" class="form-control" placeholder="Artist's Name">
+                                    <input type="text" id="favorite_artist" name="favorite_artist" class="form-control" placeholder="Artist's Name">
                                 </div>
                             </div>
                         </div>
