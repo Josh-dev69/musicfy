@@ -1,20 +1,53 @@
 # Musicify - Personalized Music Recommendation System
 
-Musicify is a web application that provides personalized music recommendations based on user preferences and listening history. Powered by Django, Bootstrap, and the Spotify API, Musicify offers a seamless experience for discovering new music tailored to individual tastes.
+
+This Django project is a music recommender system that provides personalized music recommendations based on user preferences. It integrates with the Spotify API to fetch music data and utilizes content-based filtering algorithms to generate recommendations.
+
+## Project Structure
+
+music_recommender_project/
+├── users/ # Django app for user authentication and profile management
+│ ├── migrations/ # Database migrations
+│ ├── templates/ # HTML templates for user authentication and profile management
+| |   ├── static/ # Static files (e.g., CSS)
+│ └── style.css # Custom CSS styles  
+│ ├── admin.py # Admin configurations
+│ ├── forms.py # Forms for user authentication and profile management
+│ ├── models.py # User profile model definition
+│ ├── urls.py # URL patterns for user authentication and profile management
+│ └── views.py # Views for user authentication and profile management
+├── music_recommender/ # Django app for music recommendation functionality
+│ ├── migrations/ # Database migrations
+│ ├── templates/ # HTML templates for music recommendations
+│ ├── admin.py # Admin configurations
+│ ├── models.py # Music track model definition
+│ ├── urls.py # URL patterns for music recommendations
+│ └── views.py # Views for music recommendations
+├── api_integration/ # Integration with the Spotify API
+│ ├── spotify_api.py # Functions to authenticate and interact with the Spotify API
+│ └── spotify_data.py # Functions to fetch music data from Spotify
+├── music_recommender_project/ # Django project settings and configurations
+│ ├── settings.py # Project settings
+│ ├── urls.py # Project URL patterns
+│ └── wsgi.py # WSGI application entry point
+├── db.sqlite3 # SQLite database file (default for Django projects)
+├── manage.py # Django management script
+├── README.md # Project documentation
+└── requirements.txt # Python package dependencies
 
 ## Features
 
-- **User Authentication**: Secure user registration and login system to personalize recommendations for each user.
-- **Music Recommendations**: Utilizes Spotify's extensive music catalog and recommendation algorithms to suggest songs and playlists based on user preferences.
-- **Liked Songs**: Allows users to save and manage their favorite songs for future reference.
-- **Search Functionality**: Enables users to search for specific artists, albums, or tracks within the Spotify database.
-- **Responsive Design**: Fully responsive user interface optimized for desktop, tablet, and mobile devices.
+- User authentication and authorization system.
+- User profile management with preferences such as favorite genre and artist.
+- Integration with the Spotify API to fetch music data.
+- Content-based filtering algorithm to enhance recommendations.
+- Responsive web interface for easy access on various devices.
 
 ## Technologies Used
 
 - **Django**: Python web framework for building the backend logic and handling user authentication.
 - **Bootstrap**: Frontend framework for creating responsive and visually appealing user interfaces.
-- **Spotify API**: Integration with the Spotify API to fetch music data and recommendations.
+- **Spotipy**: A python Framework to Integrate the Spotify API to fetch music data and recommendations.
 - **HTML/CSS**: Markup and styling languages for structuring and designing the web pages.
 - **JavaScript**: Client-side scripting language for dynamic interactivity and asynchronous requests.
 
@@ -22,18 +55,18 @@ Musicify is a web application that provides personalized music recommendations b
 
 1. Clone the repository: `git clone https://github.com/Josh-dev69/musicify.git`
 2. Navigate to the project directory: `cd musicify`
-3. Install dependencies: `pip install -r requirements.txt`
-4. Configure Spotify API credentials in `settings.py`.
-5. Run migrations: `python manage.py migrate`
+3. Install the required python packages: `pip install -r requirements.txt`
+4. Run migrations: `python manage.py migrate`
+5. Create a superuser(for admin access): `python manage.py createsuperuser`
 6. Start the development server: `python manage.py runserver`
 7. Access the application in your browser at `http://localhost:8000`
 
-## Project Structure
+## Usage
 
-- **music_recommender_project**: Django app directory containing views, models, templates, and static files.
-- **templates**: HTML templates for rendering frontend pages.
-- **static**: Contains CSS, JavaScript, and image files for styling and interactivity.
-- **requirements.txt**: List of Python dependencies for the project.
+- Register a new account and log in to access personalized recommendations.
+- Update your user profile with your favorite genre and artist preferences.
+- Navigate to the recommendations page to view personalized music recommendations.
+- Log out to exit your account.
 
 ## Contributing
 
