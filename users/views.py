@@ -75,12 +75,10 @@ def user_preference(request):
     if request.method == 'POST':
         try:
             # Process user preferences form submission
-            favorite_genre = request.POST.get('favorite_genre')
             favorite_artist = request.POST.get('favorite_artist')
             
             # Save user preferences to the database
             user_profile = request.user.userprofile
-            user_profile.favorite_genre = favorite_genre
             user_profile.favorite_artist = favorite_artist
             user_profile.save()
             # Redirect to a success page or homepage
