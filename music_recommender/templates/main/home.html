@@ -3,15 +3,23 @@
 {% block content %}
 	<div class="container">
 		<div class="row">
-			{% if context %}
-            <ul>
-                {% for track in context %}
-                    <li>
-                        <strong>Title:</strong> {{ track.title }}<br>
-                        <strong>Artist:</strong> {{ track.artist }}<br>
-                    </li>
-                {% endfor %}
-            </ul>
+			{% if recommended_tracks %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Artist</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for track in recommended_tracks %}
+                        <tr>
+                            <td>{{ track.title }}</td>
+                            <td>{{ track.artist }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         {% else %}
             <p>No recommendations available.</p>
         {% endif %}

@@ -15,17 +15,19 @@ def fetch_music_data(genre=None, artist=None, limit=10):
     if artist:
         query += f' artist:"{artist}"'
 
-    # Search for tracks on Spotify
-    results = sp.search(q=query, type='track', limit=limit)
+    try:
+        # Search for tracks on Spotify
+        results = sp.search(q=query, type='track', limit=limit)
+    except Exception as e:
+        print(f"An error occurred while fetching music data: {e}")
+        return []
 
     # Extract relevant metadata for each track and save to the database
     tracks = []
     for track in results['tracks']['items']:
         title = track['name']
         artist = track['artists'][0]['name']
-        
-
-        # Save the fetched data to the MusicTrack model
+        # Check if the track already exists in the database
         music_track, created = MusicTrack.objects.get_or_create(
             title=title,
             artist=artist,
@@ -34,6 +36,7 @@ def fetch_music_data(genre=None, artist=None, limit=10):
         tracks.append(music_track)
 
     return tracks
+
 
 def enhance_recommendations(user_preferences, fetched_tracks):
     """
